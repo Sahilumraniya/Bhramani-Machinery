@@ -1,0 +1,88 @@
+import {
+  four_head_capping,
+  four_head_servo_filling,
+  gum_labeling,
+  sticker_labeling,
+  trun_table,
+  washing,
+} from "../../images/assets";
+const products = [
+  {
+    id: 1,
+    name: "Trun Table",
+    slug: "trun-table",
+    images: trun_table,
+    description: [
+      "Suitable For / Vials Bottle & Round Container",
+      "Std Size : 24” / 30” / 36” / 42” / Dia ",
+      "Electric Load – 0.5 To 1.5HP .Depend",
+      " 4Pn Size Single Phase 220v/ 50Hz / A.C. ",
+    ],
+  },
+  {
+    id: 2,
+    name: "Gum Labelling Machine",
+    slug: "gum-labelling-machine",
+    images: gum_labeling,
+    description: [
+      " Machine Output 150-160 BPM ",
+      "Label Height 30mm to 155 mm",
+      "Wet Glue Labelling Machine Two Sid Lable Master",
+      "No Bottle , No Lablleng System",
+      "Dry Bottles For Best Result",
+      "Easy & Reach Compact Panel ,Provide Ease & Operation",
+      "Power Supply . 220v , 50HZ , 3 Phase",
+      " Wet Glue Labelling Machine Attach Turn Table",
+      "A.C.Variable Frequency Deive System (50/60hz) ",
+      "Machine Avilable in all dimension",
+    ],
+  },
+  {
+    id: 3,
+    name: "Four Head Filling Machine",
+    slug: "four-head-filling-machine",
+    images: four_head_servo_filling,
+    description: [
+      " Machine Output 50-60 BPM ",
+      " No Bottle , No Filling , No Capping & System",
+      "Filling Accuracy + 1% ",
+      "Star Wheel Having Clutch System",
+      "Filling Nozzle Living Type (if Require)",
+      "Power Supply – 220v , 50hz , 1 Phase",
+      "Power Supply . 220v , 50HZ , 3 Phase",
+      "Machine Avilable in all dimension",
+    ],
+  },
+  {
+    id: 4,
+    name: "Automatic Capping Machine",
+    slug: "automatic-capping-machine",
+    images: four_head_capping,
+    description: [
+      "Star Wheel Having Clutch System",
+      "Easy Reach Compact Panel Provide",
+      "Ease Operation",
+      "Container Dia 20mm To 100mm",
+      "Power Supply 220v , 50HZ , 1 Phase",
+    ],
+  },
+  {
+    id: 5,
+    name: "Bottle Stickar Labelling Machine",
+    slug: "bottle-stickar-labelling-machine",
+    images: sticker_labeling,
+    description: [
+      "Output 60 To 80 BPM",
+      "No Change Parts Are Require For Change Over Of Container Dia",
+      "Online Counting System",
+      "No. Bottle No . Labelling System",
+      "Machine Operate By PLC & Touch Screen HMI",
+      "Easy & Reach Comact Paenl Provide Ease & Operation",
+      "No Maintenance",
+      "Power Supply 220v , 50HZ , Single Phase",
+      "Avilable in all dimension",
+    ],
+  },
+];
+
+export default products;
