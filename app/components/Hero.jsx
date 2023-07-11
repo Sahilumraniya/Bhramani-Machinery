@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 import Image from "next/image";
 import { bg } from "../../images";
@@ -15,91 +13,99 @@ import {
 const Hero = () => {
   return (
     <>
-      <div>
-        <section className="relative bg-gradient-to-r from-teal-500 to-cyan-600 text-white">
-          <div className="absolute inset-0">
-            <Image
-              src={bg}
-              alt="Hero Background"
-              layout="fill"
-              objectFit="cover"
-              className="opacity-30"
-            />
+      <div className="w-full flex sm:h-[500px] h-[25%] overflow-hidden relative flex-col justify-center items-center">
+        <Image
+          src={bg}
+          alt="bg"
+          className="object-cover w-full h-full overflow-hidden"
+        ></Image>
+        <div className="absolute h-full top-10">
+          <h2 className="sm:text-4xl text-2xl font-semibold z-10 text-white text-center sm:mx-12">
+            Transforming Pharmaceutical Manufacturing: Innovative Solutions for
+            Enhanced Efficiency
+          </h2>
+          <p className="sm:text-5xl text-3xl bg-white rounded py-3 my-[7%] font-extrabold uppercase text-center">
+            <samp className="text-blue-800 font-bold">Bhramani</samp>
+            <samp className="text-red-600 font-bold"> Machinery</samp>
+          </p>
+        </div>
+        {/* <div className="w-full h-[100px]">
+        <Carousel >
+          <div>
+            <Image src={Auger_Filling} />
+            <p className="legend">Image 1</p>
           </div>
-          <div className="container mx-auto flex flex-col items-center justify-center h-screen px-5 relative z-10">
-            <h1 className="text-5xl sm:text-6xl font-bold leading-tight text-center">
-              Welcome to Our Website
-            </h1>
-            <p className="mt-4 text-lg sm:text-xl max-w-2xl text-center">
-              Discover amazing content, connect with our community, and explore what we have to offer.
-            </p>
-            <div className="mt-8 flex space-x-4">
-              <a
-                href="#about"
-                className="bg-white text-teal-600 hover:bg-gray-200 transition duration-300 ease-in-out py-3 px-6 rounded-lg font-semibold shadow-lg"
-              >
-                Learn More
-              </a>
-              <a
-                href="#contact"
-                className="bg-teal-700 hover:bg-teal-800 transition duration-300 ease-in-out text-white py-3 px-6 rounded-lg font-semibold shadow-lg"
-              >
-                Get In Touch
-              </a>
-            </div>
+          <div>
+            <Image src={Auger_Filling} />
+            <p className="legend">Image 1</p>
           </div>
-        </section>
+          <div>
+            <Image src={Auger_Filling} />
+            <p className="legend">Image 1</p>
+          </div>
+        </Carousel>
+      </div> */}
       </div>
-
-      <section className="text-gray-800 body-font bg-gray-100 py-12">
-        <div className="container mx-auto px-5">
-          <div className="flex flex-col mb-10 text-center">
-            <h1 className="text-4xl font-semibold title-font text-gray-900 mb-4">
+      <section class="text-gray-600 body-font px-[5%] bg-slate-500">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+          <div class="flex w-full mb-20 flex-wrap text-white">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font lg:w-1/3 lg:mb-0 mb-4">
               Our Machine Gallery
+              <div class="h-1 w-20 bg-orange-600 rounded mt-1"></div>
             </h1>
-            <div className="h-1 w-24 bg-orange-600 rounded mx-auto mb-6"></div>
+            <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base"></p>
           </div>
-          <div className="flex flex-wrap -m-1">
-            {[
-              trun_table,
-              four_head_capping,
-              four_head_servo_filling,
-              washing,
-              single_head_capping,
-              sticker_labeling,
-            ].map((imageSrc, index) => (
-              <div
-                key={index}
-                className="p-2 w-full md:w-1/2 lg:w-1/3 transition-transform duration-300 transform hover:scale-105"
-              >
+          <div class="flex flex-wrap md:-m-2 -m-1">
+            <div class="flex flex-wrap w-1/2">
+              <div class="md:p-2 p-1 w-1/2">
+                {/* <img alt="gallery" class="w-full object-cover h-full object-center block" src={Auger_Filling} /> */}
                 <Image
-                  src={imageSrc}
-                  alt={`Gallery Image ${index + 1}`}
-                  className="w-full h-auto object-cover rounded-lg shadow-lg"
+                  src={trun_table}
+                  alt="gallery"
+                  className="w-full object-cover h-full object-center block"
                 />
               </div>
-            ))}
+              <div class="md:p-2 p-1 w-1/2">
+                <Image
+                  src={four_head_capping}
+                  alt="gallery"
+                  className="w-full object-cover h-full object-center block"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-full">
+                <Image
+                  src={four_head_servo_filling}
+                  alt="gallery"
+                  className="w-full object-cover h-full object-center block"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap w-1/2">
+              <div class="md:p-2 p-1 w-full">
+                <Image
+                  src={washing}
+                  alt="gallery"
+                  className="w-full object-cover h-full object-center block"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-1/2">
+                <Image
+                  src={single_head_capping}
+                  alt="gallery"
+                  className="w-full object-cover h-full object-center block"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-1/2">
+                <Image
+                  src={sticker_labeling}
+                  alt="gallery"
+                  className="w-full object-cover h-full object-center block"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 1s ease forwards;
-        }
-      `}</style>
     </>
   );
 };

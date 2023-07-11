@@ -1,92 +1,126 @@
-"use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { logo, close, menu } from "../../images";
 import Image from "next/image";
 import Link from "next/link";
-import { logo, menu, close } from "../../images"; // Ensure correct paths
 
 const NavBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Contact Us", href: "#contact" },
-  ];
-
-  useEffect(() => {
-    // Lock body scroll when the menu is open (mobile view)
-    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
-  }, [isMenuOpen]);
-
-  const handleLinkClick = (name) => {
-    setActiveLink(name);
-    setIsMenuOpen(false); // Close the menu after clicking a link
-  };
+  const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState("");
 
   return (
-    <>
-      <header className="bg-white shadow-md backdrop-blur-md bg-opacity-70 sticky top-0 z-20">
-        <nav className="flex items-center justify-between px-6 py-4">
-          {/* Logo and Brand */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src={logo} alt="logo" width={40} height={40} />
-            <h1 className="text-2xl font-bold text-blue-800">
-              Bhramani <span className="text-red-600">Machinery</span>
-            </h1>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <ul className="hidden sm:flex space-x-8">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className={`text-lg ${activeLink === link.name ? "text-blue-600" : "text-black"} hover:text-blue-600`}
-                  onClick={() => handleLinkClick(link.name)}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="flex sm:hidden"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-          >
+    <div className="sm:sticky top-0 z-20" >
+      <nav className="navbar navbar-expand-lg navbar-light py-5 flex justify-around bg-slate-50">
+        <div className="flex space-x-4 items-center">
+          <Link className="navbar-brand items-center" href="/">
             <Image
-              src={isMenuOpen ? close : menu}
-              alt="menu icon"
-              width={30}
-              height={30}
-              className="cursor-pointer"
+              className="items-center"
+              alt="logo"
+              src={logo}
+              width={40}
+              height={50}
             />
-          </button>
-        </nav>
-
-        {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-white shadow-lg backdrop-blur-md z-50">
-            <ul className="flex flex-col items-center space-y-6 py-6">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className={`text-lg ${activeLink === link.name ? "text-blue-600" : "text-black"} hover:text-blue-600`}
-                    onClick={() => handleLinkClick(link.name)}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+          </Link>
+          <p className="sm:text-2xl uppercase">
+            <samp className="text-blue-800 font-bold">Bhramani</samp>
+            <samp className="text-red-600 font-bold"> Machinery</samp>
+          </p>
+        </div>
+        <div className="links hidden sm:flex">
+          <ul className="flex space-x-5 items-center">
+            <li
+              className={`${
+                active === "" ? "text-blue-600" : "text-black"
+              } cursor-pointer `}
+              onClick={() => {
+                setActive("");
+              }}
+            >
+              <Link href="/"> Home </Link>
+            </li>
+            <li
+              className={`${
+                active === "about" ? "text-blue-600" : "text-black"
+              } cursor-pointer`}
+              onClick={() => {
+                setActive("about");
+              }}
+            >
+              <a href="#"> About Us </a>
+            </li>
+            <li
+              className={`${
+                active === "products" ? "text-blue-600" : "text-black"
+              } cursor-pointer`}
+              onClick={() => {
+                setActive("products");
+              }}
+            >
+              <a href="#product">Products</a>
+            </li>
+            <li className="text-white bg-blue-600 px-2 rounded-md py-1 cursor-pointer">
+              <a href="#contect"> Contact Us </a>
+            </li>
+          </ul>
+        </div>
+        {/* Mobile */}
+        <div className="links flex sm:hidden">
+          <Image
+            src={toggle ? close : menu}
+            width={50}
+            height={50}
+            alt="menu"
+            className="object-contain cursor-pointer"
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          />
+          <div
+            className={`${
+              !toggle
+                ? "hidden"
+                : "inline-block absolute top-[10%] w-full left-0 z-10 p-3"
+            } bg-white`}
+          >
+            <ul className="bg-white space-y-10 items-center">
+              <li
+                className={`${
+                  active === "" ? "text-blue-600" : "text-black"
+                } cursor-pointer text-blue-600`}
+                onClick={() => {
+                  setActive("");
+                }}
+              >
+                <a href="#"> Home </a>
+              </li>
+              <li
+                className={`${
+                  active === "about" ? "text-blue-600" : "text-black"
+                } cursor-pointer`}
+                onClick={() => {
+                  setActive("about");
+                }}
+              >
+                <a href="#"> About Us </a>
+              </li>
+              <li
+                className={`${
+                  active === "products" ? "text-blue-600" : "text-black"
+                } cursor-pointer`}
+                onClick={() => {
+                  setActive("products");
+                }}
+              >
+                <a href="#"> Products </a>
+              </li>
+              <li className="text-white bg-blue-600 px-2 rounded-md py-1 cursor-pointer">
+                <a href="#"> Contact Us </a>
+              </li>
             </ul>
           </div>
-        )}
-      </header>
-    </>
+        </div>
+      </nav>
+      <hr />
+    </div>
   );
 };
 
