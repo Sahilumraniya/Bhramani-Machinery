@@ -1,4 +1,3 @@
-"use client"
 import Contect from "./components/Contect"
 import Hero from "./components/Hero"
 import Products from "./components/Products"
