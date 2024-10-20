@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import products from "@/app/data/machines";
+import products from "../data/machines";
 import Link from "next/link";
 
 const Products = () => {
