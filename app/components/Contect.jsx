@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 
 const Contact = () => {
