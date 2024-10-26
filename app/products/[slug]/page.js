@@ -1,4 +1,4 @@
-"use client";
+
 import Contect from "@/app/components/Contect";
 import products from "@/app/data/machines";
 import Image from "next/image";
